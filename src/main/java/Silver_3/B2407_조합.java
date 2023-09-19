@@ -1,4 +1,4 @@
-package ing;
+package Silver_3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
