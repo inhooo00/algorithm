@@ -1,4 +1,4 @@
-package ing;
+package Silver_4;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,12 +20,12 @@ public class B1246_온라인판매 {
         int count = 0;
         int max = 0;
         for (int i = 0; i < S; i++) {
-            int tmpsum = 0;
+            int midsum = 0;
             int num = list.get(i);
-            if (S - i < N) tmpsum = num * (S - i); //사람 수보다 달걀이 많을 때.
-            else tmpsum = num * N; // 사람 수보다 달걀이 적을 때.
-            if (max < tmpsum) {
-                max = tmpsum;
+            if (S - i < N) midsum = num * (S - i); //사람 수보다 달걀이 많을 때.
+            else midsum = num * N; // 사람 수보다 달걀이 적을 때.
+            if (max < midsum) {
+                max = midsum;
                 count = num;
             }
 
