@@ -1,4 +1,4 @@
-package Bronze_3;
+package Gold_2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
