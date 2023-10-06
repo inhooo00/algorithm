@@ -1,4 +1,4 @@
-package ing;
+package Bronze_4.ing;
 
 import java.io.BufferedReader;
 import java.io.IOException;
