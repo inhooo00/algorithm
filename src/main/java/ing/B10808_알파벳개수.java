@@ -1,4 +1,4 @@
-package Bronze_4.ing;
+package ing;
 import java.io.*;
 import java.util.*;
 
