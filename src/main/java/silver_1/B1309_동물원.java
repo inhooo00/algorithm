@@ -12,7 +12,7 @@ public class B1309_동물원 {
         int[][] array = new int[N + 1][3];
         Arrays.fill(array[1], 1);
 
-        for (int i = 2; i <= N; i++) { //각 라인마다 비교
+        for (int i = 2; i <= N; i++) { //각 라인마다 비교.
             array[i][0] = (array[i - 1][0] + array[i - 1][1] + array[i - 1][2]) % 9901; //하나도 배치하지 않은 경우
             array[i][1] = (array[i - 1][0] + array[i - 1][2]) % 9901; // 왼쪽에 들어간 경우
             array[i][2] = (array[i - 1][0] + array[i - 1][1]) % 9901; // 오른쪽에 들어간  경우
