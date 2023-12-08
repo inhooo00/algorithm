@@ -18,7 +18,6 @@ public class B1235_학생번호 {
             for (int j = 0; j < arr.length; j++) {
                 answer[j] = arr[j].substring(i);
             }
-            //System.out.println(answer[1]);
             boolean b = true;
             for (int j = 0; j < N; j++) {
                 for (int k = j + 1; k < N; k++) {
