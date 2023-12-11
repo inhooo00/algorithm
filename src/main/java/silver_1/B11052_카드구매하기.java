@@ -26,7 +26,7 @@ public class B11052_카드구매하기 {
             }
         }
 
-        System.out.println(d[n]);
+        System.out.println(d[n]);//
 
 
     }
