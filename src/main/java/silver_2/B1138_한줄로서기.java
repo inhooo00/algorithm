@@ -11,7 +11,7 @@ public class B1138_한줄로서기 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         String[] arr_S = br.readLine().split(" ");
-        int[] arr = new int[N + 1];
+        int[] arr = new int[N + 1];//
 
         List<Integer> list = new ArrayList<>();
 
