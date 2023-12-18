@@ -3,7 +3,7 @@ package silver_3;
 import java.util.Scanner;
 
 public class B10973_이전순열 {
-
+//
     public static void main(String[] args) {
         solution();
     }
