@@ -11,7 +11,7 @@ public class B2502_떡먹는호랑이 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        int[] dp = new int[n];
+        int[] dp = new int[n];//
 
         for(int i = 1; i <= m/2; i++) {
             for(int j = i+1; j < m; j++) {
