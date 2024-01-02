@@ -18,7 +18,7 @@ public class P_level2_가장큰수 {
 
         Arrays.sort(strings, new Comparator<String>() {
             @Override
-            public int compare(String o1, String o2) {
+            public int compare(String o1, String o2) {//
                 return (o2 + o1).compareTo(o1 + o2);
             }
         });
