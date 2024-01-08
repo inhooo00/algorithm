@@ -1,4 +1,4 @@
-package programmers.level2;
+package programmers.stack_queue.level2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

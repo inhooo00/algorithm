@@ -1,4 +1,4 @@
-package programmers.level2;
+package programmers.stack_queue.level2;
 
 //s	answer
 //"()()"	true
