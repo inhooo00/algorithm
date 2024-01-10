@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 //prices	return
 //[1, 2, 3, 2, 3]	[4, 3, 1, 1, 0]
-// 가장 쉬웠던 문제. /
+// 가장 쉬웠던 문제. //
 public class P42584 {
     public static void main(String[] args) {
         int[] prices = {1, 2, 3, 2, 3};
