@@ -3,6 +3,7 @@ package programmers.greedy.level2;
 // name	return
 //"JEROEN"	56
 //"JAN"	23
+
 public class P42860 {
     public static void main(String[] args) {
 
