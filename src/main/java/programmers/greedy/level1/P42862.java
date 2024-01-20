@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 // 체육복
 //n	lost	reserve	return
-//5	[2, 4]	[1, 3, 5]	5
+//5	[2, 4]	[1, 3, 5]  	5
 //5	[2, 4]	[3]	4
 //3	[3]	[1]	2
 public class P42862 {
