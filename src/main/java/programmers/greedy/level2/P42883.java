@@ -1,4 +1,4 @@
-package programmers.greedy;
+package programmers.greedy.level2;
 
 import java.util.List;
 
