@@ -8,6 +8,7 @@ import java.util.List;
 //"4177252841"	4	"775841"
 
 public class P42883 {
+
     public static void main(String[] args) {
 
     }
