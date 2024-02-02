@@ -1,4 +1,4 @@
-package programmers.brute_force;
+package programmers.brute_force.level2;
 
 // 카펫
 // brown	yellow	return

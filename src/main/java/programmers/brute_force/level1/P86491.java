@@ -1,4 +1,4 @@
-package programmers.brute_force;
+package programmers.brute_force.level1;
 
 // 최소 직사각형
 //명함 번호	가로 길이	세로 길이
