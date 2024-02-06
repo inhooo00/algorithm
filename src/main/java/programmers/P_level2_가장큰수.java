@@ -6,6 +6,7 @@ public class P_level2_가장큰수 {
     public static void main(String[] args) {
         int[] numbers = {6, 10, 2};
         System.out.println(solution(numbers));
+
     }
 
     public static String solution(int[] numbers) {
