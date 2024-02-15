@@ -1,7 +1,7 @@
 package programmers.p;
 
 import java.util.Arrays;
-//g
+//
 // 수열 구간 쿼리 3
 //arr	queries	result
 //[0, 1, 2, 3, 4]	[[0, 3],[1, 2],[1, 4]]	[3, 4, 1, 0, 2]
