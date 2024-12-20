@@ -9,7 +9,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/../../프로젝트/algorithm" />
           </set>
         </option>
       </GradleProjectSettings>
