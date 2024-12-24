@@ -25,7 +25,7 @@ public class P340213 {
         public String convertToString(int t) {
             int mm = t / 60;
             int ss = t % 60;
-            return String.format("%02d:%02d", mm, ss);
+            return String.format("%02d:%02d", mm, ss); // % 포멧팅 시작. 0 비어있으면 0. 2 최소 2자리. d int형.
         }
 
         public String solution(String video_len, String pos, String op_start, String op_end, String[] commands) {
