@@ -54,6 +54,14 @@ public class P42889 {
                             (e1, e2) -> e1,
                             LinkedHashMap::new
                     ));
+//        hashMap = hashMap.entrySet().stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .collect(Collectors.toMap(
+//                        Map.Entry::getKey,
+//                        Map.Entry::getValue,
+//                        (e1, e2) -> e1,
+//                        LinkedHashMap::new
+//                ));
 
             int index = 0;
             for (int key : hashMap.keySet()) {
