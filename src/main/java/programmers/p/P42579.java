@@ -49,7 +49,7 @@ public class P42579 {
             }
 
             linkedHashMap2 = linkedHashMap2.entrySet().stream() // 4. 정렬해서 먼저 삽입할 장르를 인지
-                    .sorted((Map.Entry.<String, Integer>comparingByValue().reversed()))
+                    .sorted(((a,b)-> b.getValue().compareTo(a.getValue())))
                     .collect(Collectors.toMap(
                             Map.Entry::getKey,
                             Map.Entry::getValue,
