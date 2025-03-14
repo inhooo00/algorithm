@@ -1,5 +1,7 @@
 package programmers.p;
 
+import java.util.Stack;
+
 public class P64061 {
 
     // 움직였을 때 2개 같은 숫자가 쌓이면 사라짐.
@@ -24,30 +26,22 @@ public class P64061 {
     static class Solution {
         public int solution(int[][] board, int[] moves) {
             int answer = 0;
-            String result = "";
+            Stack<Integer> stack = new Stack<>();
 
             for (int num : moves) {
-                for (int j = 0; j < 5; j++) {
+                for (int j = 0; j < board.length; j++) {
                     if (board[j][num - 1] != 0) {
-                        result += (board[j][num - 1]);
+                        if (!stack.empty() && stack.peek() == board[j][num - 1]) {
+                            stack.pop();
+                            answer += 2;
+                        } else {
+                            stack.add(board[j][num - 1]);
+                        }
                         board[j][num - 1] = 0;
                         break;
                     }
                 }
             }
-            int resultLen = result.length(); // 기존 결과 리스트 길이
-
-            String[] arr = {"11", "22", "33", "44", "55"};
-            while (true) {
-                String resultCopy = result;
-                for (int i = 0; i < arr.length; i++) { // 겹치는 거 있는지 확인하고 없애기
-                    result = result.replaceAll(arr[i], "");
-                }
-                if (resultCopy.equals(result)) {
-                    break;
-                }
-            }
-            answer = resultLen - result.length();
             return answer;
         }
     }
