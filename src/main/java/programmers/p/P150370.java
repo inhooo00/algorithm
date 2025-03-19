@@ -1,14 +1,10 @@
 package programmers.p;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
 // 파기해야 할 개인정보의 번호를 오름차순으로 1차원 정수 배열에 담아 return 하도록 solution 함수를 완성해 주세요.
 
 // map으로 terms 저장. *28해서
@@ -59,7 +55,6 @@ public class P150370 {
             int[] arr = answer.stream()
                     .mapToInt(Integer::intValue)
                     .toArray();
-
             return arr;
         }
     }
