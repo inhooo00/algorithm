@@ -29,7 +29,7 @@ public class P155652 {
             }
             System.out.println(alpList);
             for (String string : sArr) {
-                int lastIndex = (alpList.indexOf(string) + index) % (26 - index +1);
+                int lastIndex = (alpList.indexOf(string) + index) % (alpList.size());
                 answer += alpList.get(lastIndex);
                 System.out.println(alpList.get(lastIndex));
             }
