@@ -106,4 +106,56 @@ public class P92341 {
             return answer;
         }
     }
+
+    // 서브맵에 in을 적제해감.
+    // out을 만나면 메인맵에 키를 번호, 벨류를 in out의 시간 차로 해서 넣음.
+    // 서브맵에 in이 남아있으면 23*60+59 - {서브맵 시간}해서 메인맵에 넣음.
+    // 그렇게 나온 메인맵에 시간이 누적되어 있을테니, 기본금, 반올림 처리해서 list에 저장하고 반환.
+
+    static class Solution2 {
+        public List<Integer> solution(int[] fees, String[] records) {
+            int 기본시간 = fees[0];
+            int 기본요금 = fees[1];
+            int 초과하는_분 = fees[2];
+            int 초과하는_분당_가격 = fees[3];
+
+            Map<String, String> subMap = new TreeMap<>();
+            Map<String, Integer> mainMap = new TreeMap<>();
+            List<Integer> list = new ArrayList<>();
+            for(String record : records) {
+                String[] now = record.split(" ");
+                if(now[2].equals("OUT")){
+                    String time = subMap.remove(now[1]);
+                    String[] 서브맵시간 = time.split(":");
+                    String[] 지금시간 = now[0].substring(0,5).split(":");
+                    int 누적시간 = (Integer.parseInt(지금시간[0])*60 + Integer.parseInt(지금시간[1]))-(Integer.parseInt(서브맵시간[0]) *60 + Integer.parseInt(서브맵시간[1]));
+                    mainMap.put(now[1],mainMap.getOrDefault(now[1],0)+누적시간);
+                    continue;
+                }
+                subMap.put(now[1], now[0]);
+            }
+            for(String key : subMap.keySet()){
+                String[] now = subMap.get(key).split(":");
+                int 누적시간 = (23*60+59) - (Integer.parseInt(now[0])*60 + Integer.parseInt(now[1]));
+                mainMap.put(key,mainMap.getOrDefault(key,0)+누적시간);
+            }
+
+            for(String key : mainMap.keySet()) {
+                if(mainMap.get(key) <= 기본시간){
+                    list.add(기본요금);
+                }else{
+                    if((mainMap.get(key)-기본시간)%초과하는_분==0){
+                        list.add(기본요금 + ((mainMap.get(key)-기본시간)/초과하는_분)*초과하는_분당_가격);
+                    }else{
+                        list.add(기본요금 + ((mainMap.get(key)-기본시간)/초과하는_분+1)*초과하는_분당_가격);
+                    }
+                }
+            }
+            System.out.println(subMap);
+            System.out.println(mainMap);
+
+
+            return list;
+        }
+    }
 }
