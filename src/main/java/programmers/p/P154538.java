@@ -4,7 +4,13 @@ import java.util.*;
 
 
 public class P154538 {
-
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int x = 10;
+        int y = 40;
+        int n = 5;
+        System.out.println(solution.solution(x, y, n)); // Expected output: 2
+    }
 
     static class Solution {
     /*
@@ -34,6 +40,7 @@ public class P154538 {
                     if(y>=i&&!visited.contains(i)){
                         queue.add(new Node(i,now.count+1));
                         visited.add(i);
+                        System.out.println(i);
                     }
                 }
             }
