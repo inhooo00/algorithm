@@ -1,56 +1,57 @@
 package ing;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-
-class Student2 {
-    String name;
-    int age;
-    int height;
-
-    public Student2(String name, int age, int height) {
-        this.age = age;
-        this.height = height;
-        this.name = name;
-    }
-}
-
-class StudentComparator implements Comparator<Student2> {
-
-    @Override
-    public int compare(Student2 o1, Student2 o2) {
-        if (o1.age == o2.age) {
-            return Integer.compare(o1.height, o2.height);
-        }
-        return (o1.age > o2.age) ? 1 : -1;
-    }
-
-}
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class test {
+    static int N,M;
+    static int[] arr1; // 정답 누적
+    static boolean[] visited;
+    static int[] intArr; // 주어진 배열
+    static StringBuilder sb = new StringBuilder();
+    static Set<String> set = new HashSet<>();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] arr = br.readLine().split(" ");
+        N = Integer.parseInt(arr[0]);
+        M = Integer.parseInt(arr[1]);
+        intArr = Arrays.stream(br.readLine().split(" "))
+                .mapToInt(Integer::parseInt).sorted()
+                .toArray();
+        arr1 = new int[M];
+        visited = new boolean[N];
+        dfs(0);
+        System.out.println(sb);
+    }
 
-    public static void main(String[] args) {
-        Student2 s1 = new Student2("ram", 10, 170);
-        Student2 s2 = new Student2("rahim", 10, 166);
-        Student2 s3 = new Student2("reyaz", 15, 150);
-        ArrayList<Student2> studentList = new ArrayList<Student2>();
-        studentList.add(s1);
-        studentList.add(s2);
-        studentList.add(s3);
-        Collections.sort(studentList, new StudentComparator());
+    private static void dfs(int depth) {
+        if(depth==M ){
+            StringBuilder innr = new StringBuilder();
+            for (int n : arr1){
+                innr.append(n).append(" ");
+            }
+            if (set.add(innr.toString())){
+                sb.append(innr);
+                sb.append("\n");
 
-        // sorting in reverse order
-        Comparator<Student2> comp = Collections
-                .reverseOrder(new StudentComparator());
-        Collections.sort(studentList, comp);
-        for (Student2 s : studentList) {
-            System.out.println("Student isss");
-            System.out.println(s.name);
-            System.out.println(s.age);
-            System.out.println(s.height);
+            }
+            return;
         }
 
+        for (int i = 0; i < N; i++) {
+            if (!visited[i]){
+                arr1[depth] = intArr[i];
+                visited[i] = true;
+                dfs(depth+1);
+                visited[i] = false;
+            }
+        }
     }
 
 }
