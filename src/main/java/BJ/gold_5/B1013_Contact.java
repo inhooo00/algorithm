@@ -8,6 +8,9 @@ import java.io.IOException;
 // +는 뒤에 여러 개 올 수 있음.
 // |는 또는
 // ()는 그룹
+// ?는 없거나 하나, *는 없거나 여러
+// ^[0-9]*$	숫자
+// ^[a-zA-Z]*$	영문자
 public class B1013_Contact {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
