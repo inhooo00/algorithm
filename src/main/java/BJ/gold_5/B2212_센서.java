@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 // K개의 집중국 놓기
-// 가장 긴 길이
+// 가장 긴 길이를 뺀다고 접근.
 public class B2212_센서 {
     static int N, K;
     static int[] field;
