@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 // 줄을 오름차순으로 세우는데 최소 횟수로 세우기
 // 음..
-//
+// 못풉니다.
 public class B7570_줄세우기 {
     static int N;
     static int[] list;
@@ -22,7 +22,6 @@ public class B7570_줄세우기 {
         for (int i = 0; i < N; i++) {
             list[Integer.parseInt(input[i])] = i;
         }
-        dp[0] = 1;
         for (int i = 1; i <= N; i++) {
             if (list[i-1] < list[i] ) dp[i] = dp[i-1]+1;
             else dp[i] = 1;
