@@ -45,7 +45,7 @@ public class B2307_도로검문 {
             for(Node n : graph.get(now.num)){
                 if (dist[n.num] > dist[now.num]+n.cost){
                     dist[n.num] = dist[now.num]+n.cost;
-                    prev[n.num] = now.num;
+                    prev[n.num] = now.num; // 역추적
                     priorityQueue.add(new Node(n.num,dist[now.num]+n.cost));
                 }
             }
