@@ -5,53 +5,55 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+// 암호는 L개의 알파벳으로 구성.
+// 최소 한 개의 모음(a, e, i, o, u) + 최소 두 개의 자음/
+// 증가하는 배열
 public class B1759_암호만들기 {
-    // 정렬을 해놓고
-    // 배열에 하나씩 쌓다가
-    // N개가 되면 나오고 sb에 append하기.
-    static int N,M;
-    static char[] charArr;
+    static String[] mo = {"a", "e", "i", "o", "u"};
     static StringBuilder sb = new StringBuilder();
+    static int L, C;
+    static String[] arr;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int[] array = Arrays.stream(br.readLine().split(" "))
-                .mapToInt(Integer::parseInt)
-                .toArray();
-        N = array[0];
-        M = array[1];
-        String[] arr = br.readLine().split(" ");
-        Arrays.sort(arr, (a,b)->a.charAt(0) - b.charAt(0));
-        charArr = new char[M];
-        for (int i = 0; i < charArr.length; i++) {
-            charArr[i] = arr[i].charAt(0);
+        String[] input = br.readLine().split(" ");
+        L = Integer.parseInt(input[0]);
+        C = Integer.parseInt(input[1]);
+        arr = new String[C];
+        String[] input2 = br.readLine().split(" ");
+        for (int i = 0; i < C; i++) {
+            arr[i] = input2[i];
         }
+        Arrays.sort(arr);
+        // 오름차순이잖아. 그럼 순열임. 조합이 아님. visited가 아닌 start로 처리해야함.
+        String[] list = new String[L];
+        dfs(0, 0, list);
 
-        for (int i = 0; i <= M-N; i++) { // 시작 문자
-            dfs(i + 1, 1, String.valueOf(charArr[i]), isMo(charArr[i]) ? 1 : 0, isMo(charArr[i]) ? 0 : 1);
-        }
         System.out.println(sb);
     }
 
-    private static void dfs(int start, int depth, String current, int moCount, int jaCount) {
-        if (depth == N) {
-            if (moCount >= 1 && jaCount >= 2) {
-                sb.append(current).append("\n");
+    private static void dfs(int depth, int start, String[] list) {
+        if (depth == L) {
+            int moCount = 0;
+            for (int i = 0; i < list.length; i++) {
+                for (String m : mo) {
+                    if (list[i].equals(m)) {
+                        moCount++;
+                    }
+                }
+            }
+            if (moCount >= 1 && L-moCount >= 2) {
+                for (String s : list) {
+                    sb.append(s);
+                }
+                sb.append("\n");
             }
             return;
         }
 
-        for (int i = start; i < M; i++) {
-            char ch = charArr[i];
-            if (isMo(ch)) {
-                dfs(i + 1, depth + 1, current + ch, moCount + 1, jaCount);
-            } else {
-                dfs(i + 1, depth + 1, current + ch, moCount, jaCount + 1);
-            }
+        for (int i = start; i < C; i++) {
+            list[depth] = arr[i];
+            dfs(depth + 1, i + 1, list);
         }
     }
-
-    private static boolean isMo(char ch) {
-        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
-    }
-
 }
