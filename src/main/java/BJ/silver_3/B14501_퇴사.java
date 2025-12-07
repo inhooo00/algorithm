@@ -6,36 +6,40 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
+// 최대한 많은 상담을 해야함.
+// 시간과 값이 있음.
+
 public class B14501_퇴사 {
+    static Table[] table;
+    static int N;
+    static int answer = 0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        Table[] field = new Table[N+1];
-        for (int i = 1; i <= N; i++) {
+        N = Integer.parseInt(br.readLine());
+        table = new Table[N];
+        for (int i = 0; i < N; i++) {
             String[] input = br.readLine().split(" ");
-            field[i] = new Table(Integer.parseInt(input[0]),Integer.parseInt(input[1]));
+            table[i] = new Table(Integer.parseInt(input[0]),Integer.parseInt(input[1]));
         }
-        int[] dp = new int[N+1];
-        dp[1] = field[1].pay;
-
-        for (int i = 1; i <= N; i++) {
-            if (field[i].time+i > N){ // 지금 값의 시간이 오바되면
-                dp[i] = dp[i-1];
-                System.out.println(i);
-                continue;
-            }
-            dp[field[i].time+i] = Math.max(dp[field[i].time+i], field[field[i].time+i].pay+dp[i]);
-            // 지금 값의 이전값과 지금값을 비교
-        }
-        System.out.println(Arrays.toString(dp));
-        System.out.println(dp[N]);
+        dfs(0,0);
+        System.out.println(answer);
     }
 
-    static class Table{
-        int time,pay;
-        Table(int time, int pay){
+    private static void dfs(int totalTime, int totalMoney) { // 지금 위치, 지금까지 걸린 시간, 누적 값
+        if (totalTime==N){ // 마지막 시간에 도착했을 때의 totalMoney 확인
+            answer = Math.max(answer, totalMoney);
+            return;
+        }
+        // 값이 들어오면 2가지로 분기되야함. 안하고 넘어가기, 포함하고 넘어가기
+        dfs(totalTime+1,totalMoney);
+        if (totalTime+table[totalTime].time <= N) dfs(totalTime+table[totalTime].time, totalMoney+table[totalTime].money);
+    }
+
+    private static class Table{
+        int time, money;
+        Table(int time, int money){
             this.time = time;
-            this.pay = pay;
+            this.money = money;
         }
     }
 }
