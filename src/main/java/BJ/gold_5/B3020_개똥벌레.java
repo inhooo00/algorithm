@@ -29,7 +29,7 @@ public class B3020_개똥벌레 {
 
         // 뒤에서부터 누적합. 해당 길이 이상의 개수 세기.
         for (int i = H - 1; i >= 1; i--) {
-            down[i] += down[i + 1];
+            down[i] += down[i + 1]; // 높이마다 개수 누적 저장.
         }
 
 
