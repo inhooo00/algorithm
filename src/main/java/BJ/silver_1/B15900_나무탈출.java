@@ -14,14 +14,12 @@ public class B15900_나무탈출 {
     static int N;
     static List<List<Integer>> graph = new ArrayList<>();
     static int count = 0;
-    static boolean[] visited;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine()); // 정점 개수
         for (int i = 0; i <= N; i++) {
             graph.add(new ArrayList<>());
         }
-        visited = new boolean[N];
         for (int i = 0; i < N-1; i++) { // 그래프 간선 연결
             String[] input = br.readLine().split(" ");
             graph.get(Integer.parseInt(input[0])).add(Integer.parseInt(input[1]));
