@@ -14,17 +14,20 @@ public class S5215_햄버거다이어트 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int TC = Integer.parseInt(br.readLine());
+        int[] input = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+
+
         for(int i=1;i<=TC;i++){
-            String[] input = br.readLine().split(" ");
-            N = Integer.parseInt(input[0]);
-            L = Integer.parseInt(input[1]);
+            String[] input2 = br.readLine().split(" ");
+            N = Integer.parseInt(input2[0]);
+            L = Integer.parseInt(input2[1]);
             arr = new int[N][2];
             visited = new boolean[N];
             max = 0;
             for (int j = 0; j < N; j++) {
-                String[] input2 = br.readLine().split(" ");
-                arr[j][0] = Integer.parseInt(input2[0]);
-                arr[j][1] = Integer.parseInt(input2[1]);
+                String[] input3 = br.readLine().split(" ");
+                arr[j][0] = Integer.parseInt(input3[0]);
+                arr[j][1] = Integer.parseInt(input3[1]);
             }
             dfs(0, 0,0);
             System.out.println("#"+i +" "+max);
