@@ -41,8 +41,11 @@ public class S1486_장훈이의높은선반 {
         if (depth == N) {
             return;
         }
-
-        dfs(depth + 1, total + people[depth]);
+        if (!visited[depth]){
+            visited[depth] = true;
+            dfs(depth + 1, total + people[depth]);
+            visited[depth] = false;
+        }
 
         dfs(depth + 1, total);
     }
