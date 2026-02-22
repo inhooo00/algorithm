@@ -18,7 +18,6 @@ public class Ilta {
         코사인법칙_끼인각();
         코사인법칙_세변();
     }
-
     static double getAngle(double side1, double side2, double side3) {
         // cos 값을 각도로 변환 (라디안 → 도)
         return Math.toDegrees(
